@@ -41,5 +41,9 @@ int main()
   std::cout << "Wahre Variable: " << wahre_variable << std::endl;
   std::cout << "Falsche Variable: " << falsche_variable << std::endl;
 
+  char mein_zeichen = 'x';
+
+  std::cout << "Meine Char Variable: " << mein_zeichen << std::endl;
+
   return 0;
 }
