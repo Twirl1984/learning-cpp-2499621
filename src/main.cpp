@@ -45,5 +45,14 @@ int main()
 
   std::cout << "Meine Char Variable: " << mein_zeichen << std::endl;
 
+  int mein_array [7] = {};
+
+  std::cout << "Mein Array an Index 3: " << mein_array[3] << std::endl;
+
+  mein_array[4] = -9;
+
+  std::cout << "Mein Array an Index 3: " << mein_array[3] << std::endl;
+  std::cout << "Mein Array an Index 4: " << mein_array[4] << std::endl;
+
   return 0;
 }
