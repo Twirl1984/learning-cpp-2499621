@@ -27,32 +27,19 @@ void ausgabeSpielfeld(int array[])
   std::cout << zeichenWandler(array[6]) << " | " << zeichenWandler(array[7]) << " | " << zeichenWandler(array[8]) << std::endl;
 }
 
-bool gameOver(int array[])
+bool gameOver(int array[],int spieler)
 {
-  if ((array[0] == 1 && array[1] == 1 && array[2] == 1) ||
-      (array[3] == 1 && array[4] == 1 && array[5] == 1) ||
-      (array[6] == 1 && array[7] == 1 && array[8] == 1) ||
-      (array[0] == 1 && array[3] == 1 && array[6] == 1) ||
-      (array[1] == 1 && array[4] == 1 && array[7] == 1) ||
-      (array[2] == 1 && array[5] == 1 && array[8] == 1) ||
-      (array[0] == 1 && array[4] == 1 && array[8] == 1) ||
-      (array[2] == 1 && array[4] == 1 && array[6] == 1)){
-        std::cout << "Spieler 1 hat gewonnen!" << std::endl;
-        std::cout << "Game Over" << std::endl;
+  if ((array[0] == spieler && array[1] == spieler && array[2] == spieler) ||
+      (array[3] == spieler && array[4] == spieler && array[5] == spieler) ||
+      (array[6] == spieler && array[7] == spieler && array[8] == spieler) ||
+      (array[0] == spieler && array[3] == spieler && array[6] == spieler) ||
+      (array[1] == spieler && array[4] == spieler && array[7] == spieler) ||
+      (array[2] == spieler && array[5] == spieler && array[8] == spieler) ||
+      (array[0] == spieler && array[4] == spieler && array[8] == spieler) ||
+      (array[2] == spieler && array[4] == spieler && array[6] == spieler)){
+        std::cout << "Spieler " << spieler << " hat gewonnen!" << std::endl;
+        std::cout << "Game Over!" << std::endl;
         return true; 
-      }
-      else if ((array[0] == 2 && array[1] == 2 && array[2] == 2) ||
-               (array[3] == 2 && array[4] == 2 && array[5] == 2) ||
-               (array[6] == 2 && array[7] == 2 && array[8] == 2) ||
-               (array[0] == 2 && array[3] == 2 && array[6] == 2) ||
-               (array[1] == 2 && array[4] == 2 && array[7] == 2) ||
-               (array[2] == 2 && array[5] == 2 && array[8] == 2) ||
-               (array[0] == 2 && array[4] == 2 && array[8] == 2) ||
-               (array[2] == 2 && array[4] == 2 && array[6] == 2))
-      {
-        std::cout << "Spieler 2 hat gewonnen!" << std::endl;
-        std::cout << "Game Over" << std::endl;
-        return true;
       }else{
         return false;
       }
@@ -108,11 +95,9 @@ int main()
   while (gameover==false)
   {
     eingabeprüfung(array,spieler);
-    spieler=togglespieler(spieler);
-
     ausgabeSpielfeld(array);
-
-    gameover=gameOver(array);
+    gameover=gameOver(array,spieler);
+    spieler = togglespieler(spieler);
   }
 
   return 0;
